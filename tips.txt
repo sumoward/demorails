@@ -28,4 +28,27 @@ development:
  
  bundle install
  
+ rake: db:schema:dump
+ 
+ #how to generate a new model
+rails generate model Post
+
+
+   t.column :title, :string, :limit => 100, default=>"", :null=>false
+      t.column :body, :text, :default=>"", :null=>false
+      t.column :author, :string, :limit => 100, default=>"", :null=>false
+      t.column :category, :string, :limit => 100, default=>"", :null=>false
+      t.column :status, :string, :limit => 100, default=>"", :null=>false
+      t.column :created_at, :datetime
+
+
+
+#migrate down
+
+rake db:migrate VERSION=0
+
+#then migrate back up
+rake db:migrate
+
+
 

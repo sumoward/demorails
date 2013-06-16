@@ -11,6 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130616200703) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "post_id",                     :default => 0,  :null => false
+    t.string   "author",       :limit => 100, :default => "", :null => false
+    t.string   "author_email", :limit => 100, :default => "", :null => false
+    t.text     "content",                                     :null => false
+    t.string   "status",       :limit => 100, :default => "", :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title",      :limit => 100, :default => "", :null => false
+    t.text     "body",                                      :null => false
+    t.string   "author",     :limit => 100, :default => "", :null => false
+    t.string   "category",   :limit => 100, :default => "", :null => false
+    t.string   "status",     :limit => 100, :default => "", :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username",        :limit => 100, :default => "", :null => false
+    t.string   "hashed_password", :limit => 100, :default => "", :null => false
+    t.string   "first_name",      :limit => 100, :default => "", :null => false
+    t.string   "last_name",       :limit => 100, :default => "", :null => false
+    t.string   "email",           :limit => 100, :default => "", :null => false
+    t.string   "display_name",    :limit => 100, :default => "", :null => false
+    t.integer  "user_level",      :limit => 3,   :default => 0,  :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+  end
 
 end
