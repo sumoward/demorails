@@ -1,0 +1,31 @@
+
+datebase management:
+
+
+mysql -u root -pqwerty
+
+CREATE DATABASE sblog_development;
+CREATE DATABASE sblog_production;
+CREATE DATABASE sblog_test;
+
+grant all privileges on sblog_development.* to 'admin'@'localhost' identified by 'gtavern'
+grant all privileges on sblog_test.* to 'admin'@'localhost' identified by 'gtavern';
+grant all privileges on sblog_production.* to 'admin'@'localhost' identified by 'gtavern';
+
+
+then config/database.yaml 
+(for all 3 databases)
+
+development:
+  adapter: mysql
+  database:sblog_development
+  username:admin
+  password:gtavern
+  pool: 5
+  timeout: 5000
+  
+ gem 'therubyracer'
+ 
+ bundle install
+ 
+
